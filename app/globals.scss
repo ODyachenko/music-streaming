@@ -2,7 +2,7 @@
 @import '@/assets/scss/variables.scss';
 
 body {
-  font-family: 'Monrope', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 16px;
   line-height: 1.2;
   color: #fff;
@@ -16,4 +16,8 @@ body {
 .main {
   position: relative;
   overflow-x: hidden;
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
 }

@@ -1,4 +1,4 @@
-import INavLinks from '@/@types';
+import { INavLinks } from '@/@types';
 import NavItem from './NavItem';
 
 const navLinks: INavLinks[] = [

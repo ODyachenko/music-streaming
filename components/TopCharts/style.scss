@@ -1,0 +1,52 @@
+.charts {
+  padding: 50px 0;
+
+  &__title {
+    margin-bottom: 15px;
+  }
+  &__list {
+    // display: flex;
+    // gap: 17px;
+    // overflow: auto;
+
+    &-item {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      flex-shrink: 0;
+      background: #1a1e1f;
+      border-radius: 20px;
+      padding: 15px;
+    }
+    &--cover {
+      margin-bottom: 15px;
+    }
+    &--favourite {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 37px;
+      height: 37px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 50%;
+      cursor: pointer;
+
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+    &--title {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+    &--artist {
+      display: block;
+      font-size: 12px;
+      opacity: 0.5;
+      margin-bottom: 25px;
+    }
+    &--duration {
+      font-size: 14px;
+    }
+  }
+}
