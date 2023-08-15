@@ -1,0 +1,67 @@
+@import '@/assets/scss/variables.scss';
+
+.nav {
+  // position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 0;
+
+  &__burger {
+    position: relative;
+    width: 24px;
+    height: 24px;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+    &::before {
+      top: 4px;
+    }
+    &::after {
+      bottom: 4px;
+    }
+  }
+  &__list {
+    width: 320px;
+    height: 100%;
+    background: #1a1e1f;
+    transition: all 0.3s ease;
+    padding: 100px 40px 15px;
+
+    position: absolute;
+    top: 84px;
+    bottom: 0;
+    right: -320px;
+    z-index: 100;
+
+    &.active {
+      right: 0;
+    }
+
+    &-item {
+      & a {
+        display: flex;
+        align-items: center;
+      }
+      & svg {
+        width: 29px;
+        height: 29px;
+        margin-right: 40px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}

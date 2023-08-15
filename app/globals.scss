@@ -1,0 +1,19 @@
+@import '@/assets/scss/normalize.scss';
+@import '@/assets/scss/variables.scss';
+
+body {
+  font-family: 'Monrope', sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #fff;
+  background: $primary-bg;
+}
+.container {
+  max-width: 1280px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.main {
+  position: relative;
+  overflow-x: hidden;
+}
