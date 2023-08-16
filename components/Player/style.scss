@@ -1,0 +1,55 @@
+@import '@/assets/scss/variables.scss';
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(29, 33, 35, 0.3);
+  backdrop-filter: blur(15px);
+
+  padding: 33px 15px;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+
+  &__control {
+    display: flex;
+    align-items: center;
+
+    &--play {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: $primary-yellow;
+      border-radius: 50%;
+      box-shadow: 0px 0px 24.551959991455078px 0px rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+
+      margin-right: 23px;
+    }
+  }
+}
+.artist {
+  display: flex;
+  align-items: center;
+
+  &__img {
+    max-width: 57px;
+    margin-right: 12px;
+  }
+  &__song {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  &__name {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.44);
+  }
+}
