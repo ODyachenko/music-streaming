@@ -1,0 +1,52 @@
+.header {
+}
+.hero {
+  position: relative;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  background: #609eaf;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 10;
+
+  padding: 33px 20px;
+
+  &__overlay {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    z-index: -1;
+  }
+
+  &__name {
+    font-size: 12px;
+  }
+  &__title {
+    font-size: 35px;
+    font-weight: 700;
+    margin: auto 0 10px;
+  }
+  &__text {
+    font-size: 14px;
+    margin-bottom: 45px;
+  }
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--activity {
+      display: flex;
+      align-items: center;
+      font-size: 21px;
+
+      & svg {
+        margin-right: 5px;
+      }
+    }
+    &--avatars {
+      max-width: 110px;
+    }
+  }
+}

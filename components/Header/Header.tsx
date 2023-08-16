@@ -1,12 +1,12 @@
-import Image from '@/node_modules/next/image';
 import React from 'react';
-import hero from '@/public/header_hero.png';
+import './style.scss';
+import Hero from './Hero';
 
 export default function Header() {
   return (
     <header className="header">
       <div className="header__hero">
-        <Image src={hero} priority alt="hero" />
+        <Hero />
       </div>
     </header>
   );
