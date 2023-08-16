@@ -11,3 +11,9 @@ export interface IChartsList {
   artist: string;
   duration: string;
 }
+
+export interface IReleasesList {
+  id: number;
+  img: StaticImageData | any;
+  title: string;
+}

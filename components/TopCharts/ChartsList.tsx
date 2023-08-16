@@ -4,7 +4,6 @@ import ChartsItem from './ChartsItem';
 import { IChartsList } from '@/@types';
 import albumCover from '@/public/albumCover.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -34,18 +33,10 @@ const chartsList: IChartsList[] = [
   },
 ];
 
-const sliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
-
 export default function ChartsList() {
   return (
     <ul className="charts__list">
-      <Swiper>
+      <Swiper spaceBetween={17} loop={true}>
         {chartsList.map((item) => {
           return (
             <SwiperSlide key={item.id}>

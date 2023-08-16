@@ -1,0 +1,17 @@
+.releases {
+  &__title {
+    margin-bottom: 16px;
+  }
+  &__list {
+    &-item {
+      max-width: 153px;
+    }
+    &-cover {
+      margin-bottom: 10px;
+    }
+    &-title {
+      font-size: 12px;
+      opacity: 0.5;
+    }
+  }
+}
