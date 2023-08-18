@@ -33,7 +33,7 @@ const releasesList: IReleasesList[] = [
 export default function ReleasesList() {
   return (
     <ul className="releases__list">
-      <Swiper slidesPerView={2} spaceBetween={30} loop={true}>
+      <Swiper slidesPerView={'auto'} spaceBetween={30} loop={true}>
         {releasesList.map((release) => {
           return (
             <SwiperSlide key={release.id}>

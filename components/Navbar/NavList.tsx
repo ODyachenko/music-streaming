@@ -174,9 +174,21 @@ const navLinks: INavLinks[] = [
   },
 ];
 
-export default function NavList({ showMenu }: { showMenu: boolean }) {
+type NavListProps = {
+  showMenu: boolean;
+  setShowMenu: (value: boolean) => void;
+};
+
+export default function NavList({ showMenu, setShowMenu }: NavListProps) {
+  function onCLickHandler() {
+    setShowMenu(!showMenu);
+  }
+
   return (
-    <ul className={`nav__list ${showMenu ? 'active' : ''}`}>
+    <ul
+      className={`nav__list ${showMenu ? 'active' : ''}`}
+      onClick={onCLickHandler}
+    >
       {navLinks.map((link) => {
         return <NavItem key={link.id} {...link} />;
       })}

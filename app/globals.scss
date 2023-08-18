@@ -19,14 +19,30 @@ body {
   overflow-x: hidden;
 
   padding-bottom: 150px;
+
+  &.active {
+    overflow: hidden;
+  }
+  &__inner {
+    padding-bottom: 50px;
+  }
 }
 .title {
   font-size: 20px;
   font-weight: 700;
 }
-.charts .swiper {
-  padding-right: 70px;
+.charts .swiper-slide {
+  max-width: 320px;
 }
-.releases .swiper {
-  padding-right: 55px;
+
+.releases .swiper-slide {
+  max-width: 153px;
+}
+@media (min-width: 1024px) {
+  .main {
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

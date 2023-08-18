@@ -43,9 +43,11 @@ export default function ChartsItem({
           />
         </svg>
       </button>
-      <h3 className="charts__list--title">{title}</h3>
-      <span className="charts__list--artist">{artist}</span>
-      <span className="charts__list--duration">{duration}</span>
+      <div className="charts__list--info">
+        <h3 className="charts__list--title">{title}</h3>
+        <span className="charts__list--artist">{artist}</span>
+        <span className="charts__list--duration">{duration}</span>
+      </div>
     </li>
   );
 }

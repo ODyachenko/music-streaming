@@ -9,8 +9,10 @@ export default function Home() {
     <main className="main">
       <div className="container">
         <Navbar />
-        <Header />
-        <TopCharts />
+        <div className="main__inner">
+          <Header />
+          <TopCharts />
+        </div>
         <Releases />
         <Player />
       </div>
