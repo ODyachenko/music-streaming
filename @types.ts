@@ -6,7 +6,7 @@ export interface INavLinks {
 }
 export interface IChartsList {
   id: number;
-  img: StaticImageData | any;
+  img: StaticImageData;
   title: string;
   artist: string;
   duration: string;
@@ -14,6 +14,20 @@ export interface IChartsList {
 
 export interface IReleasesList {
   id: number;
-  img: StaticImageData | any;
+  img: StaticImageData;
   title: string;
+}
+
+export interface IActions {
+  id: number;
+  img: StaticImageData;
+  value: string;
+}
+
+export interface Isongs {
+  id: number;
+  img: StaticImageData;
+  name: string;
+  artist: string;
+  duration: string;
 }

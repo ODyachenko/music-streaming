@@ -1,8 +1,8 @@
-import Header from '@/components/Header/Header';
 import Navbar from '@/components/Navbar/Navbar';
-import Player from '@/components/Player/Player';
-import Releases from '@/components/Releases/Releases';
+import Header from '@/components/Header/Header';
 import TopCharts from '@/components/TopCharts/TopCharts';
+import Releases from '@/components/Releases/Releases';
+import Player from '@/components/Player/Player';
 
 export default function Home() {
   return (

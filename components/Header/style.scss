@@ -56,3 +56,38 @@
     margin-right: 25px;
   }
 }
+@media (min-width: 1220px) {
+  .hero {
+    padding: 40px 45px;
+
+    &::after {
+      content: '';
+      width: 246px;
+      height: 373px;
+      background: url('../../public/hero_artist.png') no-repeat center/contain;
+
+      position: absolute;
+      bottom: 0;
+      right: 25px;
+    }
+
+    &__name,
+    &__text {
+      margin-bottom: 85px;
+    }
+    &__text {
+      max-width: 275px;
+      line-height: 1.4;
+    }
+    &__title {
+      margin: 0 0 10px;
+    }
+    &__social {
+      max-width: 220px;
+
+      &--activity {
+        font-size: 14px;
+      }
+    }
+  }
+}
