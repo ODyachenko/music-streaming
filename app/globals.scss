@@ -39,7 +39,12 @@ body {
   max-width: 153px;
 }
 @media (min-width: 1024px) {
+  .container {
+    padding: 0 25px;
+  }
   .main {
+    padding: 25px 0 0 72px;
+
     &__inner {
       display: flex;
       justify-content: space-between;

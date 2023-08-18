@@ -6,7 +6,7 @@ export default function NavItem({ icon, value, path }: INavLinks) {
   return (
     <li className="nav__list-item">
       <Link href={path}>
-        {icon} {value}
+        {icon} <span>{value}</span>
       </Link>
     </li>
   );

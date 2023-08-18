@@ -25,7 +25,14 @@ export default function Navbar() {
 
   return (
     <nav className="nav">
-      <Image src={logo} width={34} height={34} priority alt="Logo" />
+      <Image
+        className="nav__logo"
+        src={logo}
+        width={34}
+        height={34}
+        priority
+        alt="Logo"
+      />
       <button
         onClick={onClickHandler}
         className={`nav__burger ${showMenu ? 'active' : ''}`}
