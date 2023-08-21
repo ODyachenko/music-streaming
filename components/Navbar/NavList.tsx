@@ -55,7 +55,7 @@ const navLinks: INavLinks[] = [
       </svg>
     ),
     value: 'My Collections',
-    path: '/my-collections',
+    path: '/collections',
   },
   {
     id: 3,
