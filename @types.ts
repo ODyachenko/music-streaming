@@ -31,3 +31,11 @@ export interface Isongs {
   artist: string;
   duration: string;
 }
+
+export type ChartsItemType = {
+  id: string;
+  img: string;
+  title: string;
+  artist: string;
+  duration: string;
+};

@@ -58,6 +58,9 @@
         margin-right: 15px;
       }
       &-item {
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
         & a {
           display: flex;
         }

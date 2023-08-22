@@ -1,15 +1,15 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { useGetMusicByAlbumsQuery } from '@/redux/api/music.api';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import ChartsItem from './ChartsItem';
 import { IChartsList } from '@/@types';
 import albumCover from '@/public/albumCover.png';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const chartsList: IChartsList[] = [
   {
@@ -49,21 +49,11 @@ const chartsList: IChartsList[] = [
   },
 ];
 
-const options = {
-  method: 'GET',
-  url: 'https://spotify23.p.rapidapi.com/albums/',
-  params: {
-    ids: '382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc',
-  },
-  headers: {
-    'X-RapidAPI-Key': process.env.NEXT_PUBLIC_API_KEY,
-    'X-RapidAPI-Host': process.env.NEXT_PUBLIC_API_HOST,
-  },
-};
-
 export default function ChartsList() {
-  const [chartsData, setChartsData] = useState([]);
   const [showSlider, setShowSlide] = useState(true);
+  const { data, error, isLoading } = useGetMusicByAlbumsQuery(
+    '3IBcauSj5M2A6lTeffJzdv,382ObEPsp2rxGrnsizN5TX,2noRn2Aes5aoNVsU6iWThc'
+  );
 
   useEffect(() => {
     window.innerWidth > 1023 && setShowSlide(false);
@@ -77,24 +67,11 @@ export default function ChartsList() {
     });
   }, [showSlider]);
 
-  useEffect(() => {
-    fetchCharts();
-  }, []);
-
-  async function fetchCharts() {
-    try {
-      const response = await axios.request(options);
-      setChartsData(response.data.albums);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  return (
+  return data ? (
     <ul className="charts__list">
       {showSlider ? (
         <Swiper slidesPerView={'auto'} spaceBetween={17} loop={true}>
-          {chartsData.map((album: any) => {
+          {data.albums.map((album: any) => {
             return (
               <SwiperSlide key={album.id}>
                 <ChartsItem
@@ -110,7 +87,7 @@ export default function ChartsList() {
           })}
         </Swiper>
       ) : (
-        chartsData.map((album: any) => {
+        data.albums.map((album: any) => {
           return (
             <ChartsItem
               key={album.id}
@@ -124,5 +101,9 @@ export default function ChartsList() {
         })
       )}
     </ul>
+  ) : isLoading ? (
+    <div>Loading...</div>
+  ) : (
+    console.error(error)
   );
 }

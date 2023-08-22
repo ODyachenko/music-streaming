@@ -1,14 +1,16 @@
-import { Isongs } from '@/@types';
 import Image from '@/node_modules/next/image';
-import React from 'react';
+import { getTrackDuration } from '@/utils/getTrackDuration';
 
-export default function Song({ img, name, artist, duration }: Isongs) {
+export default function Song({ track }: any) {
+  // console.log(getTrackDuration(track.duration_ms));
+  // console.log(track);
+
   return (
     <li className="album__songs-item song">
-      <Image className="song__cover" src={img} alt={name} />
+      {/* <Image className="song__cover" src={img} alt={track.name} /> */}
       <div className="song__info">
-        <h2 className="song__name">{name}</h2>
-        <span className="song__artist">{artist}</span>
+        <h2 className="song__name">{track.name}</h2>
+        <span className="song__artist">{track.artists[0].name}</span>
       </div>
       <div className="song__details">
         <button className="song__details--btn">
@@ -42,7 +44,9 @@ export default function Song({ img, name, artist, duration }: Isongs) {
             />
           </svg>
         </button>
-        <span className="song__details--duration">{duration}</span>
+        <span className="song__details--duration">
+          {getTrackDuration(track.duration_ms)}
+        </span>
       </div>
     </li>
   );

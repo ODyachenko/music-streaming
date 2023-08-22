@@ -1,19 +1,24 @@
-import { IChartsList } from '@/@types';
+import { ChartsItemType } from '@/@types';
 import Image from '@/node_modules/next/image';
 import Link from '@/node_modules/next/link';
 
-export default function ChartsItem({ id, img, title, artist, duration }: any) {
+export default function ChartsItem({
+  id,
+  img,
+  title,
+  artist,
+  duration,
+}: ChartsItemType) {
   return (
     <li className="charts__list-item">
       <Link href={`/album/${id}`}>
-        {/* <Image
+        <Image
           className="charts__list--cover"
           src={img}
           alt={title}
           width={108}
           height={99}
-        /> */}
-        <img className="charts__list--cover" src={img} alt={title} />
+        />
         <button className="charts__list--favourite">
           <svg
             xmlns="http://www.w3.org/2000/svg"
