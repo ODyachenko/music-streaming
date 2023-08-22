@@ -1,6 +1,8 @@
 import './globals.scss';
 import type { Metadata } from 'next';
 import { Quicksand } from 'next/font/google';
+import { store } from '../redux/store';
+import { Provider } from 'react-redux';
 
 const quicksand = Quicksand({
   subsets: ['latin'],
@@ -20,7 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={quicksand.className}>{children}</body>
+      <body className={quicksand.className}>
+        <Provider store={store}>{children}</Provider>
+      </body>
     </html>
   );
 }

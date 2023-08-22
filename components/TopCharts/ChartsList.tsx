@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const chartsList: IChartsList[] = [
   {
@@ -48,7 +49,20 @@ const chartsList: IChartsList[] = [
   },
 ];
 
+const options = {
+  method: 'GET',
+  url: 'https://spotify23.p.rapidapi.com/albums/',
+  params: {
+    ids: '382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc',
+  },
+  headers: {
+    'X-RapidAPI-Key': process.env.NEXT_PUBLIC_API_KEY,
+    'X-RapidAPI-Host': process.env.NEXT_PUBLIC_API_HOST,
+  },
+};
+
 export default function ChartsList() {
+  const [chartsData, setChartsData] = useState([]);
   const [showSlider, setShowSlide] = useState(true);
 
   useEffect(() => {
@@ -63,21 +77,50 @@ export default function ChartsList() {
     });
   }, [showSlider]);
 
+  useEffect(() => {
+    fetchCharts();
+  }, []);
+
+  async function fetchCharts() {
+    try {
+      const response = await axios.request(options);
+      setChartsData(response.data.albums);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <ul className="charts__list">
       {showSlider ? (
         <Swiper slidesPerView={'auto'} spaceBetween={17} loop={true}>
-          {chartsList.map((item) => {
+          {chartsData.map((album: any) => {
             return (
-              <SwiperSlide key={item.id}>
-                <ChartsItem key={item.id} {...item} />
+              <SwiperSlide key={album.id}>
+                <ChartsItem
+                  key={album.id}
+                  id={album.id}
+                  img={album.images[1].url}
+                  title={album.name}
+                  artist={album.artists[0].name}
+                  duration="49"
+                />
               </SwiperSlide>
             );
           })}
         </Swiper>
       ) : (
-        chartsList.map((item) => {
-          return <ChartsItem key={item.id} {...item} />;
+        chartsData.map((album: any) => {
+          return (
+            <ChartsItem
+              key={album.id}
+              id={album.id}
+              img={album.images[1].url}
+              title={album.name}
+              artist={album.artists[0].name}
+              duration="49"
+            />
+          );
         })
       )}
     </ul>
