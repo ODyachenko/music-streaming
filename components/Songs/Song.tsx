@@ -1,13 +1,34 @@
-import Image from '@/node_modules/next/image';
-import { getTrackDuration } from '@/utils/getTrackDuration';
+import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
+import { setIsShow, setPlayingTrack } from '@/redux/slices/playerSlice';
+import { getConvertTime } from '@/utils/getConvertTime';
+import { RootState } from '@/redux/store';
 
-export default function Song({ track }: any) {
-  // console.log(getTrackDuration(track.duration_ms));
-  // console.log(track);
+export default function Song({ track, albumCover, playlist }: any) {
+  const dispatch = useAppDispatch();
+  const { playingTrack } = useAppSelector((state: RootState) => state.player);
+
+  function onClickHandler() {
+    dispatch(setIsShow(true));
+    dispatch(
+      setPlayingTrack({
+        id: track.id,
+        name: track.name,
+        artist: track.artists[0].name,
+        url: track.preview_url,
+        img: albumCover,
+        playlist: playlist,
+        track_number: track.track_number,
+      })
+    );
+  }
 
   return (
-    <li className="album__songs-item song">
-      {/* <Image className="song__cover" src={img} alt={track.name} /> */}
+    <li
+      onClick={onClickHandler}
+      className={`album__songs-item song ${
+        track.id === playingTrack.id ? 'active' : ''
+      }`}
+    >
       <div className="song__info">
         <h2 className="song__name">{track.name}</h2>
         <span className="song__artist">{track.artists[0].name}</span>
@@ -45,7 +66,7 @@ export default function Song({ track }: any) {
           </svg>
         </button>
         <span className="song__details--duration">
-          {getTrackDuration(track.duration_ms)}
+          {getConvertTime(track.duration_ms, 'track')}
         </span>
       </div>
     </li>

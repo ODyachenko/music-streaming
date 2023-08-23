@@ -37,5 +37,6 @@ export type ChartsItemType = {
   img: string;
   title: string;
   artist: string;
+  tracks: string;
   duration: string;
 };

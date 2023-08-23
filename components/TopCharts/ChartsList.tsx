@@ -10,6 +10,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { getAlbumDuration } from '@/utils/getAlbumDuration';
 
 const chartsList: IChartsList[] = [
   {
@@ -52,7 +53,7 @@ const chartsList: IChartsList[] = [
 export default function ChartsList() {
   const [showSlider, setShowSlide] = useState(true);
   const { data, error, isLoading } = useGetMusicByAlbumsQuery(
-    '3IBcauSj5M2A6lTeffJzdv,382ObEPsp2rxGrnsizN5TX,2noRn2Aes5aoNVsU6iWThc'
+    '33pt9HBdGlAbRGBHQgsZsU,1CEODgTmTwLyabvwd7HBty,1jUoeAbO2HCADZ1uiyLYIo,3cQO7jp5S9qLBoIVtbkSM1'
   );
 
   useEffect(() => {
@@ -80,7 +81,8 @@ export default function ChartsList() {
                   img={album.images[1].url}
                   title={album.name}
                   artist={album.artists[0].name}
-                  duration="49"
+                  tracks={album.total_tracks}
+                  duration={getAlbumDuration(album)}
                 />
               </SwiperSlide>
             );
@@ -95,7 +97,8 @@ export default function ChartsList() {
               img={album.images[1].url}
               title={album.name}
               artist={album.artists[0].name}
-              duration="49"
+              tracks={album.total_tracks}
+              duration={getAlbumDuration(album)}
             />
           );
         })

@@ -41,52 +41,7 @@
     }
   }
 }
-.song {
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  background: rgba(51, 55, 59, 0.37);
-  backdrop-filter: blur(5px);
-  padding: 11px 10px;
 
-  &:not(:last-child) {
-    margin-bottom: 15px;
-  }
-
-  &__cover {
-    margin-right: 15px;
-  }
-  &__name {
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-  &__artist {
-    display: block;
-    font-size: 10px;
-  }
-  &__details {
-    display: block;
-    font-size: 12px;
-    text-align: center;
-    margin-left: auto;
-
-    &--btn {
-      margin-bottom: 5px;
-    }
-  }
-}
-@media (min-width: 640px) {
-  .song {
-    padding: 15px;
-
-    &__name {
-      font-size: 16px;
-    }
-    &__artist {
-      font-size: 14px;
-    }
-  }
-}
 @media (min-width: 768px) {
   .album {
     &__inner {

@@ -1,12 +1,13 @@
 'use client';
 
 import Image from '@/node_modules/next/image';
-import albumCover from '@/public/album_cover1.png';
 import AlbumActions from '@/components/AlbumActions/AlbumActions';
 import Songs from '@/components/Songs/Songs';
 import '../style.scss';
 import PageWrapper from '@/components/PageWrapper/PageWrapper';
 import { useGetMusicByAlbumsQuery } from '@/redux/api/music.api';
+import { getAlbumDuration } from '@/utils/getAlbumDuration';
+import { getConvertTime } from '@/utils/getConvertTime';
 
 export default function page({ params }: { params: { id: string } }) {
   const { data, error, isLoading } = useGetMusicByAlbumsQuery(params.id);
@@ -29,12 +30,16 @@ export default function page({ params }: { params: { id: string } }) {
               {data.albums[0].artists[0].name}
             </p>
             <span className="album__amount">
-              {data.albums[0].total_tracks} songs ~ 16 hrs+
+              {data.albums[0].total_tracks} songs ~{' '}
+              {getConvertTime(getAlbumDuration(data.albums[0]), 'album')}
             </span>
             <AlbumActions />
           </div>
         </div>
-        <Songs tracks={data.albums[0].tracks.items} />
+        <Songs
+          albumCover={data.albums[0].images[2].url}
+          tracks={data.albums[0].tracks.items}
+        />
       </PageWrapper>
     </section>
   ) : isLoading ? (

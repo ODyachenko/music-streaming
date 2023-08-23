@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { musicApi } from './api/music.api';
-import counterSlice from './slices/counterSlice';
+import playerSlice from './slices/playerSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterSlice,
+    player: playerSlice,
     [musicApi.reducerPath]: musicApi.reducer,
   },
   middleware: (getDefaultMiddleware: any) =>

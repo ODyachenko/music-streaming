@@ -1,12 +1,14 @@
 import { ChartsItemType } from '@/@types';
 import Image from '@/node_modules/next/image';
 import Link from '@/node_modules/next/link';
+import { getConvertTime } from '@/utils/getConvertTime';
 
 export default function ChartsItem({
   id,
   img,
   title,
   artist,
+  tracks,
   duration,
 }: ChartsItemType) {
   return (
@@ -49,7 +51,9 @@ export default function ChartsItem({
         <div className="charts__list--info">
           <h3 className="charts__list--title">{title}</h3>
           <span className="charts__list--artist">{artist}</span>
-          <span className="charts__list--duration">{duration}</span>
+          <span className="charts__list--duration">
+            {tracks} songs - {getConvertTime(duration, 'album')}
+          </span>
         </div>
       </Link>
     </li>

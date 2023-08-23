@@ -1,4 +1,4 @@
-export const getTrackDuration = (time: number) => {
+export const getConvertTime = (time: number, format: string) => {
   let seconds = Math.floor(time / 1000);
   let minutes = 0;
 
@@ -6,7 +6,9 @@ export const getTrackDuration = (time: number) => {
     minutes = Math.floor(seconds / 60);
     seconds = Math.floor(((seconds % 60) / 100) * 60);
   }
-  return `${checkZero(minutes)}:${checkZero(seconds)}`;
+  return format === 'track'
+    ? `${checkZero(minutes)}:${checkZero(seconds)}`
+    : `${checkZero(minutes)}m ${checkZero(seconds)}s`;
 };
 
 function checkZero(elem: number) {
