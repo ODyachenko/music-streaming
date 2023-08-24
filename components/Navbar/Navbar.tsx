@@ -1,22 +1,21 @@
 'use client';
-
+import { FC, useEffect, useState } from 'react';
 import Image from '@/node_modules/next/image';
-import { useEffect, useState } from 'react';
+import { NavList } from './NavList';
 import logo from '../../public/logo.svg';
-import NavList from './NavList';
 import './style.scss';
 
-export default function Navbar() {
-  const [showMenu, setShowMenu]: React.ComponentState = useState(false);
+export const Navbar: FC = () => {
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     const main: Element | null = document.querySelector('.main');
 
     if (showMenu) {
-      main && main.classList.add('active');
+      main?.classList.add('active');
       return;
     }
-    main && main.classList.remove('active');
+    main?.classList.remove('active');
   }, [showMenu]);
 
   function onClickHandler() {
@@ -43,4 +42,4 @@ export default function Navbar() {
       <span className="nav__overlay"></span>
     </nav>
   );
-}
+};

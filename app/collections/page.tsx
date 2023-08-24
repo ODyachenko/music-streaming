@@ -1,5 +1,5 @@
-import PageWrapper from '@/components/PageWrapper/PageWrapper';
+import { PageWrapper } from '@/components/PageWrapper/PageWrapper';
 
-export default function Collections() {
+export default function Collection() {
   return <PageWrapper>Collections</PageWrapper>;
 }

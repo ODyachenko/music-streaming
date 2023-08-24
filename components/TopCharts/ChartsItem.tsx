@@ -1,16 +1,17 @@
-import { ChartsItemType } from '@/@types';
+import { FC } from 'react';
 import Image from '@/node_modules/next/image';
 import Link from '@/node_modules/next/link';
 import { getConvertTime } from '@/utils/getConvertTime';
+import { ChartsItemType } from '@/@types';
 
-export default function ChartsItem({
+export const ChartsItem: FC<ChartsItemType> = ({
   id,
   img,
   title,
   artist,
   tracks,
   duration,
-}: ChartsItemType) {
+}) => {
   return (
     <li className="charts__list-item">
       <Link href={`/album/${id}`}>
@@ -58,4 +59,4 @@ export default function ChartsItem({
       </Link>
     </li>
   );
-}
+};

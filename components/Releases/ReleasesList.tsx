@@ -1,7 +1,9 @@
+import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ReleasesItem from './ReleasesItem';
+import { ReleasesItem } from './ReleasesItem';
 import { IReleasesList } from '@/@types';
 import releaseCover from '@/public/release.png';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -30,7 +32,7 @@ const releasesList: IReleasesList[] = [
   },
 ];
 
-export default function ReleasesList() {
+export const ReleasesList: FC = () => {
   return (
     <ul className="releases__list">
       <Swiper slidesPerView={'auto'} spaceBetween={30} loop={true}>
@@ -44,4 +46,4 @@ export default function ReleasesList() {
       </Swiper>
     </ul>
   );
-}
+};

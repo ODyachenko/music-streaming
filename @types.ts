@@ -31,5 +31,5 @@ export type ChartsItemType = {
   title: string;
   artist: string;
   tracks: string;
-  duration: string;
+  duration: number;
 };

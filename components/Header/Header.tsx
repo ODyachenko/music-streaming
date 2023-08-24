@@ -1,11 +1,11 @@
-import React from 'react';
-import Hero from './Hero';
+import { FC } from 'react';
+import { Hero } from './Hero';
 import './style.scss';
 
-export default function Header() {
+export const Header: FC = () => {
   return (
     <header className="header">
       <Hero />
     </header>
   );
-}
+};

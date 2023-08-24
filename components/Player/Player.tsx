@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { RootState } from '@/redux/store';
 import Image from '@/node_modules/next/image';
 import AudioPlayer from 'react-h5-audio-player';
@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import './style.scss';
 import { setPlayingTrack } from '@/redux/slices/playerSlice';
 
-export default function Player() {
+export const Player: FC = () => {
   const { playingTrack } = useAppSelector((state: RootState) => state.player);
   const playlist = playingTrack.playlist.map((track: any) => {
     return {
@@ -62,4 +62,4 @@ export default function Player() {
       />
     </div>
   );
-}
+};

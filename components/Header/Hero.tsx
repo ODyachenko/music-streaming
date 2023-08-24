@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 import Image from '@/node_modules/next/image';
 import heroSocial from '@/public/hero_social.png';
 import heroOverlay from '@/public/hero_overlay.svg';
 
-export default function Hero() {
+export const Hero: FC = () => {
   return (
     <div className="header__hero hero">
       <Image
@@ -45,4 +45,4 @@ export default function Hero() {
       </div>
     </div>
   );
-}
+};

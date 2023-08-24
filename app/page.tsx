@@ -1,7 +1,7 @@
-import Header from '@/components/Header/Header';
-import TopCharts from '@/components/TopCharts/TopCharts';
-import Releases from '@/components/Releases/Releases';
-import PageWrapper from '@/components/PageWrapper/PageWrapper';
+import { Header } from '@/components/Header/Header';
+import { TopCharts } from '@/components/TopCharts/TopCharts';
+import { Releases } from '@/components/Releases/Releases';
+import { PageWrapper } from '@/components/PageWrapper/PageWrapper';
 
 export default function Home() {
   return (

@@ -1,9 +1,9 @@
+import React, { FC } from 'react';
 import { usePathname } from 'next/navigation';
-import INavLinks from '@/@types';
 import Link from '@/node_modules/next/link';
-import React, { useState } from 'react';
+import { INavLinks } from '@/@types';
 
-export default function NavItem({ icon, value, path }: INavLinks) {
+export const NavItem: FC<INavLinks> = ({ icon, value, path }) => {
   const pathname = usePathname();
 
   return (
@@ -13,4 +13,4 @@ export default function NavItem({ icon, value, path }: INavLinks) {
       </Link>
     </li>
   );
-}
+};

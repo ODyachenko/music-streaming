@@ -1,15 +1,18 @@
 'use client';
-
 import Image from '@/node_modules/next/image';
-import AlbumActions from '@/components/AlbumActions/AlbumActions';
-import Songs from '@/components/Songs/Songs';
-import '../style.scss';
-import PageWrapper from '@/components/PageWrapper/PageWrapper';
 import { useGetMusicByAlbumsQuery } from '@/redux/api/music.api';
+import { PageWrapper } from '@/components/PageWrapper/PageWrapper';
+import { AlbumActions } from '@/components/AlbumActions/AlbumActions';
+import { Songs } from '@/components/Songs/Songs';
 import { getAlbumDuration } from '@/utils/getAlbumDuration';
 import { getConvertTime } from '@/utils/getConvertTime';
+import '../style.scss';
 
-export default function page({ params }: { params: { id: string } }) {
+type AlbumPagePropsType = {
+  params: { id: string };
+};
+
+export default function page({ params }: AlbumPagePropsType) {
   const { data, error, isLoading } = useGetMusicByAlbumsQuery(params.id);
 
   return data ? (

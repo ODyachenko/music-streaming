@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import { setIsShow, setPlayingTrack } from '@/redux/slices/playerSlice';
 import { getConvertTime } from '@/utils/getConvertTime';
 import { RootState } from '@/redux/store';
 
-export default function Song({ track, albumCover, playlist }: any) {
+export const Song: FC = ({ track, albumCover, playlist }: any) => {
   const dispatch = useAppDispatch();
   const { playingTrack } = useAppSelector((state: RootState) => state.player);
 
@@ -71,4 +72,4 @@ export default function Song({ track, albumCover, playlist }: any) {
       </div>
     </li>
   );
-}
+};

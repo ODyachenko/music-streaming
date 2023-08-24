@@ -1,17 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useGetMusicByAlbumsQuery } from '@/redux/api/music.api';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import ChartsItem from './ChartsItem';
+import { ChartsItem } from './ChartsItem';
+import { getAlbumDuration } from '@/utils/getAlbumDuration';
+import { Skelleton } from '../Skelleton/Skelleton';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { getAlbumDuration } from '@/utils/getAlbumDuration';
-import { Skelleton } from '../Skelleton/Skelleton';
 
-export default function ChartsList() {
+export const ChartsList: FC = () => {
   const [showSlider, setShowSlide] = useState(true);
   const { data, error, isLoading } = useGetMusicByAlbumsQuery(
     '33pt9HBdGlAbRGBHQgsZsU,1CEODgTmTwLyabvwd7HBty,1jUoeAbO2HCADZ1uiyLYIo,3cQO7jp5S9qLBoIVtbkSM1'
@@ -74,4 +75,4 @@ export default function ChartsList() {
   ) : (
     console.error(error)
   );
-}
+};

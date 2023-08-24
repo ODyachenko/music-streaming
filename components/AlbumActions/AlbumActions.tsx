@@ -1,5 +1,5 @@
-import React from 'react';
-import AlbumActionsItem from './AlbumActionsItem';
+import { FC } from 'react';
+import { AlbumActionsItem } from './AlbumActionsItem';
 import { IActions } from '@/@types';
 
 const actions: IActions[] = [
@@ -71,7 +71,7 @@ const actions: IActions[] = [
   },
 ];
 
-export default function AlbumActions() {
+export const AlbumActions: FC = () => {
   return (
     <ul className="album__actions">
       {actions.map((action) => {
@@ -79,4 +79,4 @@ export default function AlbumActions() {
       })}
     </ul>
   );
-}
+};

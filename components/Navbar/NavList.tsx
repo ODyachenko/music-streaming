@@ -1,5 +1,6 @@
+import { NavItem } from './NavItem';
 import { INavLinks } from '@/@types';
-import NavItem from './NavItem';
+import { FC } from 'react';
 
 const navLinks: INavLinks[] = [
   {
@@ -179,7 +180,7 @@ type NavListProps = {
   setShowMenu: (value: boolean) => void;
 };
 
-export default function NavList({ showMenu, setShowMenu }: NavListProps) {
+export const NavList: FC<NavListProps> = ({ showMenu, setShowMenu }) => {
   function onCLickHandler() {
     setShowMenu(!showMenu);
   }
@@ -194,4 +195,4 @@ export default function NavList({ showMenu, setShowMenu }: NavListProps) {
       })}
     </ul>
   );
-}
+};
