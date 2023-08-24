@@ -14,7 +14,11 @@ export const musicApi = createApi({
     getMusicByAlbums: builder.query({
       query: (id: string) => `albums/?ids=${id}`,
     }),
+    getAlbumsByReleases: builder.query({
+      query: (id: string) => `genre_view/?ids=${id}`,
+    }),
   }),
 });
 
-export const { useGetMusicByAlbumsQuery } = musicApi;
+export const { useGetMusicByAlbumsQuery, useGetAlbumsByReleasesQuery } =
+  musicApi;

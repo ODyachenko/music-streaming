@@ -4,51 +4,12 @@ import { useEffect, useState } from 'react';
 import { useGetMusicByAlbumsQuery } from '@/redux/api/music.api';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ChartsItem from './ChartsItem';
-import { IChartsList } from '@/@types';
-import albumCover from '@/public/albumCover.png';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { getAlbumDuration } from '@/utils/getAlbumDuration';
-
-const chartsList: IChartsList[] = [
-  {
-    id: 1,
-    img: albumCover,
-    title: 'Golden age of 80s',
-    artist: 'Sean swadder',
-    duration: '2:34:45',
-  },
-  {
-    id: 2,
-    img: albumCover,
-    title: 'Golden age of 80s',
-    artist: 'Sean swadder',
-    duration: '2:34:45',
-  },
-  {
-    id: 3,
-    img: albumCover,
-    title: 'Golden age of 80s',
-    artist: 'Sean swadder',
-    duration: '2:34:45',
-  },
-  {
-    id: 4,
-    img: albumCover,
-    title: 'Golden age of 80s',
-    artist: 'Sean swadder',
-    duration: '2:34:45',
-  },
-  {
-    id: 5,
-    img: albumCover,
-    title: 'Golden age of 80s',
-    artist: 'Sean swadder',
-    duration: '2:34:45',
-  },
-];
+import { Skelleton } from '../Skelleton/Skelleton';
 
 export default function ChartsList() {
   const [showSlider, setShowSlide] = useState(true);
@@ -105,7 +66,11 @@ export default function ChartsList() {
       )}
     </ul>
   ) : isLoading ? (
-    <div>Loading...</div>
+    [...new Array(4)].map((_, index) => (
+      <li className="charts__list-item" key={index}>
+        <Skelleton />
+      </li>
+    ))
   ) : (
     console.error(error)
   );

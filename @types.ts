@@ -4,13 +4,6 @@ export interface INavLinks {
   value: string;
   path: string;
 }
-export interface IChartsList {
-  id: number;
-  img: StaticImageData;
-  title: string;
-  artist: string;
-  duration: string;
-}
 
 export interface IReleasesList {
   id: number;

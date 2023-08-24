@@ -30,6 +30,12 @@ export default function Player() {
     );
   };
 
+  const handleEnd = () => {
+    setCurrentTrack((currentTrack: number) =>
+      currentTrack < playlist.length - 1 ? currentTrack + 1 : 0
+    );
+  };
+
   return (
     <div className="player">
       <div className="player__artist artist">
@@ -52,6 +58,7 @@ export default function Player() {
         showJumpControls={false}
         onClickNext={handleClickNext}
         onClickPrevious={handleClickPrev}
+        onEnded={handleEnd}
       />
     </div>
   );
