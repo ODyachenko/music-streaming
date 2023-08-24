@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { ChartsItem } from './ChartsItem';
 import { getAlbumDuration } from '@/utils/getAlbumDuration';
 import { Skelleton } from '../Skelleton/Skelleton';
+import { AlbumType } from '@/@types';
 
 import 'swiper/css';
 import 'swiper/css/navigation';

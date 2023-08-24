@@ -18,7 +18,7 @@ export const Song: FC = ({ track, albumCover, playlist }: any) => {
         url: track.preview_url,
         img: albumCover,
         playlist: playlist,
-        track_number: track.track_number,
+        track_number: track.track_number - 1,
       })
     );
   }

@@ -33,3 +33,28 @@ export type ChartsItemType = {
   tracks: string;
   duration: number;
 };
+
+export type PlayingTrackType = {
+  id: string;
+  name: string;
+  artist: string;
+  url: string;
+  img: string;
+  playlist: [];
+  track_number: number;
+};
+
+export type PlaylistType = {
+  id: string;
+  name: string;
+  preview_url: string;
+};
+
+export type AlbumType = {
+  id: string;
+  title: string;
+  img: any;
+  artist: any;
+  tracks: any;
+  duration: number;
+};

@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from '../store';
+import { PlayingTrackType } from '@/@types';
 
-// Define a type for the slice state
 interface PlayerState {
   isShow: boolean;
-  playingTrack: object;
+  playingTrack: PlayingTrackType | any;
 }
 
 // Define the initial state using that type
@@ -24,8 +24,25 @@ export const playerSlice = createSlice({
     setPlayingTrack: (state: PlayerState, action: PayloadAction) => {
       state.playingTrack = action.payload;
     },
+    incrementPlayingTrack: (state: PlayerState) => {
+      state.playingTrack.track_number =
+        state.playingTrack.track_number < state.playingTrack.playlist.length - 1
+          ? (state.playingTrack.track_number += 1)
+          : 0;
+    },
+    decrementPlayingTrack: (state: PlayerState) => {
+      state.playingTrack.track_number =
+        state.playingTrack.track_number > 0
+          ? (state.playingTrack.track_number -= 1)
+          : 0;
+    },
   },
 });
 
-export const { setIsShow, setPlayingTrack } = playerSlice.actions;
+export const {
+  setIsShow,
+  setPlayingTrack,
+  incrementPlayingTrack,
+  decrementPlayingTrack,
+} = playerSlice.actions;
 export default playerSlice.reducer;
