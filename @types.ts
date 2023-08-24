@@ -58,3 +58,10 @@ export type AlbumType = {
   tracks: any;
   duration: number;
 };
+
+export type collectionListType = {
+  id: number;
+  img: StaticImageData;
+  name: string;
+  artist: string;
+};
