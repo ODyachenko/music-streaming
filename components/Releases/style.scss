@@ -1,14 +1,44 @@
+@import '@/assets/scss/variables.scss';
+
 .releases {
+  & .swiper-slide {
+    max-width: 165px;
+  }
   &__title {
     margin-bottom: 16px;
   }
   &__list {
+    &-item {
+      background: $secondary-bg;
+      border-radius: 15px;
+      padding: 15px;
+    }
     &-cover {
+      border-radius: 15px;
       margin-bottom: 10px;
     }
     &-title {
-      font-size: 12px;
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+    &-artist {
+      font-size: 13px;
       opacity: 0.5;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .releases {
+    &__list {
+      &-item {
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(51, 55, 59);
+        }
+      }
     }
   }
 }

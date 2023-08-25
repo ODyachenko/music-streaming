@@ -5,9 +5,9 @@ export const Skelleton: FC = () => {
     <svg
       role="img"
       width="390"
-      height="78"
+      height="70"
       aria-labelledby="loading-aria"
-      viewBox="0 0 390 78"
+      viewBox="0 0 390 70"
       preserveAspectRatio="none"
     >
       <title id="loading-aria">Loading...</title>

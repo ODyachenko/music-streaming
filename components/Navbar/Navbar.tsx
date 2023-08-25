@@ -4,6 +4,7 @@ import Image from '@/node_modules/next/image';
 import { NavList } from './NavList';
 import logo from '../../public/logo.svg';
 import './style.scss';
+import Link from '@/node_modules/next/link';
 
 export const Navbar: FC = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -24,14 +25,16 @@ export const Navbar: FC = () => {
 
   return (
     <nav className="nav">
-      <Image
-        className="nav__logo"
-        src={logo}
-        width={34}
-        height={34}
-        priority
-        alt="Logo"
-      />
+      <Link href="/">
+        <Image
+          className="nav__logo"
+          src={logo}
+          width={34}
+          height={34}
+          priority
+          alt="Logo"
+        />
+      </Link>
       <button
         onClick={onClickHandler}
         className={`nav__burger ${showMenu ? 'active' : ''}`}

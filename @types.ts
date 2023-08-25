@@ -6,9 +6,10 @@ export interface INavLinks {
 }
 
 export interface IReleasesList {
-  id: number;
-  img: StaticImageData;
+  id: string;
+  img: string;
   title: string;
+  artist: string;
 }
 
 export interface IActions {

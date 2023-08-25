@@ -59,12 +59,22 @@
         margin-right: 15px;
       }
       &-item {
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(51, 55, 59);
+        }
+
         &:not(:last-child) {
           margin-bottom: 15px;
         }
         & a {
           display: flex;
         }
+      }
+      &--cover {
+        margin-bottom: 0;
       }
       &--artist {
         margin-bottom: 8px;
