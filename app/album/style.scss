@@ -1,3 +1,5 @@
+@import '@/assets/scss/variables.scss';
+
 .album {
   &__inner {
     margin-bottom: 25px;
@@ -52,6 +54,27 @@
     }
     &__title {
       font-size: 35px;
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .album {
+    &__actions {
+      &-item {
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+
+        &:hover {
+          background: rgb(51, 55, 59);
+        }
+        & svg {
+          width: 20px;
+          height: 20px;
+          vertical-align: sub;
+        }
+      }
     }
   }
 }

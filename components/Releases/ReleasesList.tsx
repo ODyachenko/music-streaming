@@ -14,8 +14,6 @@ export const ReleasesList: FC = () => {
     '6jVg0POvGYH1Pt6lISl3ok,2WFFcvzM0CgLaSq4MSkyZk,70uejEPPRPSLBrTRdfghP5,0HiZ8fNXwJOQcrf5iflrdz,5mWnMYLnfcnkDOCojHW6O1,4wtZQMNTC1O79kDxMBsEan'
   );
 
-  data && console.log(data);
-
   return data ? (
     <ul className="releases__list">
       <Swiper slidesPerView={'auto'} spaceBetween={30} loop={true}>

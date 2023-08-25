@@ -1,11 +1,17 @@
 'use client';
 import { FC, useState } from 'react';
 
+type ColletionActionsPropsType = {
+  isActive: number;
+  setIsActive: (value: number) => void;
+};
+
 const actions: string[] = ['My collection', 'Likes'];
 
-export const CollectionActions: FC = () => {
-  const [isActive, setIsActive] = useState(0);
-
+export const CollectionActions: FC<ColletionActionsPropsType> = ({
+  isActive,
+  setIsActive,
+}) => {
   return (
     <ul className="collection__actions">
       {actions.map((item, index) => {

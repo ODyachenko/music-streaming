@@ -1,9 +1,46 @@
 import { FC } from 'react';
-import { IActions } from '@/@types';
+import {
+  useAddToCollectionMutation,
+  useAddToLikedMutation,
+} from '@/redux/api/collection.api';
 
-export const AlbumActionsItem: FC<IActions> = ({ img, value }) => {
+type AlbumActionsItemProps = {
+  albumId: string;
+  img: string;
+  albumCover: string;
+  name: string;
+  artist: string;
+  value: string;
+  action: string;
+};
+
+export const AlbumActionsItem: FC<AlbumActionsItemProps> = ({
+  albumId,
+  img,
+  albumCover,
+  name,
+  artist,
+  value,
+  action,
+}) => {
+  const [addToCollection] = useAddToCollectionMutation();
+  const [addToLiked] = useAddToLikedMutation();
+
+  function handleClick(action: string) {
+    switch (action) {
+      case 'PlayAll':
+        break;
+      case 'AddToColletion':
+        addToCollection({ albumId, albumCover, name, artist });
+        break;
+      case 'Like':
+        addToLiked({ albumId, albumCover, name, artist }, 'liked');
+        break;
+    }
+  }
+
   return (
-    <li className="album__actions-item">
+    <li className="album__actions-item" onClick={() => handleClick(action)}>
       {img}
       {value}
     </li>

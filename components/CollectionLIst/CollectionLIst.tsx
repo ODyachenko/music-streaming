@@ -1,40 +1,18 @@
 import { FC } from 'react';
+import { useGetCollectionQuery } from '@/redux/api/collection.api';
 import { CollectionLIstItem } from './CollectionLIstItem';
-import albumCover from '@/public/collection_cover.png';
-import { collectionListType } from '@/@types';
 
-const collectionList: collectionListType[] = [
-  {
-    id: 1,
-    img: albumCover,
-    name: 'Limits',
-    artist: 'John Watts',
-  },
-  {
-    id: 2,
-    img: albumCover,
-    name: 'Limits',
-    artist: 'John Watts',
-  },
-  {
-    id: 3,
-    img: albumCover,
-    name: 'Limits',
-    artist: 'John Watts',
-  },
-  {
-    id: 4,
-    img: albumCover,
-    name: 'Limits',
-    artist: 'John Watts',
-  },
-];
+type CollectionLIstProps = {
+  type: string;
+};
 
-export const CollectionLIst: FC = () => {
+export const CollectionLIst: FC<CollectionLIstProps> = ({ type }) => {
+  const { data, isLoading, error } = useGetCollectionQuery(type);
+
   return (
     <ul className="collection__list">
-      {collectionList.map((item) => (
-        <CollectionLIstItem key={item.id} {...item} />
+      {data?.map((item) => (
+        <CollectionLIstItem key={item.albumId} {...item} />
       ))}
     </ul>
   );

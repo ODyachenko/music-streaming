@@ -16,6 +16,8 @@ export interface IActions {
   id: number;
   img: StaticImageData;
   value: string;
+  action: string;
+  albumId?: string;
 }
 
 export interface Isongs {
@@ -58,11 +60,4 @@ export type AlbumType = {
   artist: any;
   tracks: any;
   duration: number;
-};
-
-export type collectionListType = {
-  id: number;
-  img: StaticImageData;
-  name: string;
-  artist: string;
 };

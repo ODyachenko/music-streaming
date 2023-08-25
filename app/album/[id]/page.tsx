@@ -36,7 +36,12 @@ export default function page({ params }: AlbumPagePropsType) {
               {data.albums[0].total_tracks} songs ~{' '}
               {getConvertTime(getAlbumDuration(data.albums[0]), 'album')}
             </span>
-            <AlbumActions />
+            <AlbumActions
+              albumId={data.albums[0].id}
+              albumCover={data.albums[0].images[1].url}
+              name={data.albums[0].name}
+              artist={data.albums[0].artists[0].name}
+            />
           </div>
         </div>
         <Songs
