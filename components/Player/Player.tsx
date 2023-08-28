@@ -23,8 +23,6 @@ export const Player: FC = () => {
     };
   });
 
-  console.log(playingTrack.playlist);
-
   useEffect(() => {
     dispatch(
       setPlayingTrack({

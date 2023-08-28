@@ -61,3 +61,10 @@ export type AlbumType = {
   tracks: any;
   duration: number;
 };
+
+export interface IAddCollectionAlbum {
+  albumId: string;
+  albumCover: string;
+  name: string;
+  artist: string;
+}

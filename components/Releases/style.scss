@@ -3,12 +3,14 @@
 .releases {
   & .swiper-slide {
     max-width: 165px;
+    height: 232px;
   }
   &__title {
     margin-bottom: 16px;
   }
   &__list {
     &-item {
+      height: 100%;
       background: $secondary-bg;
       border-radius: 15px;
       padding: 15px;
@@ -41,4 +43,7 @@
       }
     }
   }
+}
+.releases__list-item svg {
+  display: block;
 }

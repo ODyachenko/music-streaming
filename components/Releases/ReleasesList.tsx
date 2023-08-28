@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { useGetMusicByAlbumsQuery } from '@/redux/api/music.api';
-import { Skelleton } from '../Skelleton/Skelleton';
+import { ReleasesSkelleton } from './ReleasesSkelleton';
 
 export const ReleasesList: FC = () => {
   const { data, error, isLoading } = useGetMusicByAlbumsQuery(
@@ -32,11 +32,17 @@ export const ReleasesList: FC = () => {
       </Swiper>
     </ul>
   ) : isLoading ? (
-    [...new Array(4)].map((_, index) => (
-      <li className="charts__list-item" key={index}>
-        <Skelleton />
-      </li>
-    ))
+    <ul className="releases__list">
+      <Swiper slidesPerView={'auto'} spaceBetween={30} loop={true}>
+        {[...new Array(4)].map((_, index) => (
+          <SwiperSlide key={index}>
+            <li className="charts__list-item" key={index}>
+              <ReleasesSkelleton />
+            </li>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </ul>
   ) : (
     console.error(error)
   );
