@@ -2,7 +2,12 @@ import { FC } from 'react';
 import { Song } from './Song';
 import './style.scss';
 
-export const Songs: FC = ({ tracks, albumCover }: any) => {
+type SongsProps = {
+  tracks: any;
+  albumCover: string;
+};
+
+export const Songs: FC<SongsProps> = ({ tracks, albumCover }) => {
   return (
     <ul className="album__songs">
       {tracks.map((track: any) => {

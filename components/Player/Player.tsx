@@ -15,11 +15,13 @@ export const Player: FC = () => {
   const { playingTrack } = useAppSelector((state: RootState) => state.player);
   const dispatch = useAppDispatch();
 
-  const playlist = playingTrack.playlist.map((track: PlaylistType) => {
+  const playlist = playingTrack.playlist?.map((track: any) => {
     return {
       id: track.id,
       name: track.name,
       url: track.preview_url,
+      img: track.album?.images[2].url,
+      artist: track.artists[0].name,
     };
   });
 
@@ -30,6 +32,8 @@ export const Player: FC = () => {
         id: playlist[playingTrack.track_number].id,
         name: playlist[playingTrack.track_number].name,
         url: playlist[playingTrack.track_number].url,
+        // img: playlist[playingTrack.track_number]?.img,
+        artist: playlist[playingTrack.track_number].artist,
       })
     );
   }, [playingTrack.track_number]);

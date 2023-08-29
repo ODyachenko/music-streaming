@@ -14,7 +14,17 @@ export const musicApi = createApi({
     getMusicByAlbums: builder.query({
       query: (id: string) => `albums/?ids=${id}`,
     }),
+    getPlaylists: builder.query({
+      query: (id: string) => `playlist/?id=${id}`,
+    }),
+    getPlaylistsTracks: builder.query({
+      query: (id: string) => `playlist_tracks/?id=${id}`,
+    }),
   }),
 });
 
-export const { useGetMusicByAlbumsQuery } = musicApi;
+export const {
+  useGetMusicByAlbumsQuery,
+  useGetPlaylistsQuery,
+  useGetPlaylistsTracksQuery,
+} = musicApi;

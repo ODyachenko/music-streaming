@@ -80,8 +80,8 @@ const navLinks: INavLinks[] = [
         />
       </svg>
     ),
-    value: 'Radio',
-    path: '/radio',
+    value: 'Playlists',
+    path: '/playlists',
   },
   {
     id: 4,

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import {
   useAddToCollectionMutation,
   useAddToLikedMutation,
@@ -41,28 +41,42 @@ export const AlbumActionsItem: FC<AlbumActionsItemProps> = ({
     (item: IAddCollectionAlbum) => item.albumId === albumId
   );
 
+  // const [isActive, setIsActive] = useState(false);
+
+  // useEffect(() => {
+  //   setIsActive(!!likedAlbum);
+  // }, [likedAlbum]);
+
   function handleClick(action: string) {
     switch (action) {
       case 'PlayAll':
         break;
       case 'AddToColletion':
-        collectionAlbum
-          ? removeCollection(collectionAlbum.id)
-          : addToCollection(
-              { albumId, albumCover, name, artist },
-              'collection'
-            );
+        if (collectionAlbum) {
+          removeCollection(collectionAlbum.id);
+          // setIsActive(false);
+        } else {
+          addToCollection({ albumId, albumCover, name, artist }, 'collection');
+          // setIsActive(true);
+        }
         break;
       case 'Like':
-        likedAlbum
-          ? removeLiked(likedAlbum.id)
-          : addToLiked({ albumId, albumCover, name, artist }, 'liked');
+        if (likedAlbum) {
+          removeLiked(likedAlbum.id);
+          // setIsActive(false);
+        } else {
+          addToLiked({ albumId, albumCover, name, artist }, 'liked');
+          // setIsActive(true);
+        }
         break;
     }
   }
 
   return (
-    <li className={`album__actions-item`} onClick={() => handleClick(action)}>
+    <li
+      className={`album__actions-item ${!!likedAlbum ? 'active' : ''}`}
+      onClick={() => handleClick(action)}
+    >
       {img}
       {value}
     </li>

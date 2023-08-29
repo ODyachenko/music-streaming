@@ -1,12 +1,23 @@
 import { FC } from 'react';
+import Image from '@/node_modules/next/image';
 import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import { setIsShow, setPlayingTrack } from '@/redux/slices/playerSlice';
 import { getConvertTime } from '@/utils/getConvertTime';
 import { RootState } from '@/redux/store';
 
-export const Song: FC = ({ track, albumCover, playlist }: any) => {
-  const dispatch = useAppDispatch();
+type PlaylistSongProps = {
+  track: any;
+  playlist: [];
+  index: number;
+};
+
+export const PlaylistSong: FC<PlaylistSongProps> = ({
+  track,
+  playlist,
+  index,
+}) => {
   const { playingTrack } = useAppSelector((state: RootState) => state.player);
+  const dispatch = useAppDispatch();
 
   function onClickHandler() {
     dispatch(setIsShow(true));
@@ -16,9 +27,9 @@ export const Song: FC = ({ track, albumCover, playlist }: any) => {
         name: track.name,
         artist: track.artists[0].name,
         url: track.preview_url,
-        img: albumCover,
+        img: track.album.images[0].url,
         playlist: playlist,
-        track_number: track.track_number - 1,
+        track_number: index,
       })
     );
   }
@@ -26,11 +37,18 @@ export const Song: FC = ({ track, albumCover, playlist }: any) => {
   return (
     <li
       onClick={onClickHandler}
-      className={`album__songs-item song ${
+      className={`playlist__songs-item song ${
         track.id === playingTrack.id ? 'active' : ''
       }`}
     >
       {/* <span className="song__number">{track.track_number}</span> */}
+      <Image
+        className="song__img"
+        src={track.album.images[0].url}
+        alt={track.name}
+        width={64}
+        height={64}
+      />
       <div className="song__info">
         <h2 className="song__name">{track.name}</h2>
         <span className="song__artist">{track.artists[0].name}</span>

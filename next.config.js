@@ -8,9 +8,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'i.scdn.co',
-        // port: '',
-        // pathname: '/account123/**',
+        hostname: '*',
       },
     ],
   },
