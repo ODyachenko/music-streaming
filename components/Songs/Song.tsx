@@ -3,8 +3,11 @@ import { useAppDispatch, useAppSelector } from '@/hooks/hooks';
 import { setIsShow, setPlayingTrack } from '@/redux/slices/playerSlice';
 import { getConvertTime } from '@/utils/getConvertTime';
 import { RootState } from '@/redux/store';
+import Image from '@/node_modules/next/image';
 
-export const Song: FC = ({ track, albumCover, playlist }: any) => {
+// import gif from '@/public/equalizer.gif';
+
+export const Song: FC = ({ track, index, albumCover, playlist }: any) => {
   const dispatch = useAppDispatch();
   const { playingTrack } = useAppSelector((state: RootState) => state.player);
 
@@ -18,7 +21,7 @@ export const Song: FC = ({ track, albumCover, playlist }: any) => {
         url: track.preview_url,
         img: albumCover,
         playlist: playlist,
-        track_number: track.track_number - 1,
+        track_number: index,
       })
     );
   }
@@ -30,7 +33,8 @@ export const Song: FC = ({ track, albumCover, playlist }: any) => {
         track.id === playingTrack.id ? 'active' : ''
       }`}
     >
-      {/* <span className="song__number">{track.track_number}</span> */}
+      <span className="song__number">{index + 1}</span>
+      {/* <Image src={gif} alt="test" width={20} height={20} /> */}
       <div className="song__info">
         <h2 className="song__name">{track.name}</h2>
         <span className="song__artist">{track.artists[0].name}</span>

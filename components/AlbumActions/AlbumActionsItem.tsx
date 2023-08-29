@@ -7,6 +7,8 @@ import {
   useGetCollectionQuery,
 } from '@/redux/api/collection.api';
 import { IAddCollectionAlbum } from '@/@types';
+import { useAppDispatch } from '@/hooks/hooks';
+import { setIsShow, setPlayingTrack } from '@/redux/slices/playerSlice';
 
 type AlbumActionsItemProps = {
   albumId: string;
@@ -16,6 +18,7 @@ type AlbumActionsItemProps = {
   artist: string;
   value: string;
   action: string;
+  startTrack: any;
 };
 
 export const AlbumActionsItem: FC<AlbumActionsItemProps> = ({
@@ -26,6 +29,7 @@ export const AlbumActionsItem: FC<AlbumActionsItemProps> = ({
   artist,
   value,
   action,
+  playlist,
 }) => {
   const getLiked = useGetCollectionQuery('liked');
   const getCollection = useGetCollectionQuery('collection');
@@ -33,6 +37,7 @@ export const AlbumActionsItem: FC<AlbumActionsItemProps> = ({
   const [removeCollection] = useDeleteFromCollectionMutation();
   const [addToLiked] = useAddToLikedMutation();
   const [removeLiked] = useDeleteFromLikedMutation();
+  const dispatch = useAppDispatch();
 
   const likedAlbum = getLiked.data?.find(
     (item: IAddCollectionAlbum) => item.albumId === albumId
@@ -50,6 +55,19 @@ export const AlbumActionsItem: FC<AlbumActionsItemProps> = ({
   function handleClick(action: string) {
     switch (action) {
       case 'PlayAll':
+        setIsShow(true);
+        dispatch(setIsShow(true));
+        dispatch(
+          setPlayingTrack({
+            id: playlist[0].id,
+            name: playlist[0].name,
+            artist: playlist[0].artists[0].name,
+            url: playlist[0].preview_url,
+            img: albumCover,
+            playlist: playlist,
+            track_number: 0,
+          })
+        );
         break;
       case 'AddToColletion':
         if (collectionAlbum) {

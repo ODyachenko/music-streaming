@@ -42,6 +42,7 @@ export default function page({ params }: AlbumPagePropsType) {
                 albumCover={data.albums[0].images[1].url}
                 name={data.albums[0].name}
                 artist={data.albums[0].artists[0].name}
+                playlist={data.albums[0].tracks.items}
               />
             </div>
           </div>

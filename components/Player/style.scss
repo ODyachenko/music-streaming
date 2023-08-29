@@ -60,6 +60,7 @@
     padding: 30px 15px;
   }
   .artist {
+    width: 200px;
     flex-shrink: 0;
   }
 }
@@ -349,5 +350,10 @@ $rhap_font-family: inherit !default;
   }
   .rhap_container {
     width: 100%;
+  }
+}
+@media (min-width: 1024px) {
+  .artist {
+    width: 250px;
   }
 }

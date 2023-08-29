@@ -7,6 +7,7 @@ type AlbumActionsPropsType = {
   name: string;
   albumCover: string;
   artist: string;
+  playlist: any;
 };
 
 const actions: IActions[] = [

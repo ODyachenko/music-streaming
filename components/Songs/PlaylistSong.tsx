@@ -41,7 +41,7 @@ export const PlaylistSong: FC<PlaylistSongProps> = ({
         track.id === playingTrack.id ? 'active' : ''
       }`}
     >
-      {/* <span className="song__number">{track.track_number}</span> */}
+      <span className="song__number">{index + 1}</span>
       <Image
         className="song__img"
         src={track.album.images[0].url}
