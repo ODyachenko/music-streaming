@@ -5,7 +5,7 @@ import { useGetMusicByAlbumsQuery } from '@/redux/api/music.api';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ChartsItem } from './ChartsItem';
 import { getAlbumDuration } from '@/utils/getAlbumDuration';
-import { Skelleton } from '../Skelleton/Skelleton';
+import { Skelleton } from './Skelleton';
 
 import 'swiper/css';
 import 'swiper/css/navigation';

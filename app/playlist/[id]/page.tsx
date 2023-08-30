@@ -31,7 +31,7 @@ export default function page({ params }: PlaylistProps) {
               <h1 className="album__title">{data.name}</h1>
               <p className="album__description">{data.description}</p>
               <span className="album__amount">
-                {data.tracks.total} songs ~{' '}
+                {data.tracks.total} songs
                 {/* {getConvertTime(getAlbumDuration(data.albums[0]), 'album')} */}
               </span>
             </div>

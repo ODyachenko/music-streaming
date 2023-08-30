@@ -2,20 +2,29 @@
 
 import { useGetPlaylistsQuery } from '@/redux/api/music.api';
 import React, { FC } from 'react';
+import { PlaylistSkeleton } from './PlaylistSkeleton';
 import { PlaylistsListItem } from './PlaylistsListItem';
 import './style.scss';
 
 export const PlaylistsList: FC = () => {
-  const getPlaylists = useGetPlaylistsQuery('37i9dQZF1E4tLXl1ytNjGw');
+  const { data, isLoading, error } = useGetPlaylistsQuery(
+    '37i9dQZF1E4tLXl1ytNjGw'
+  );
 
   return (
     <ul className="playlists__list">
-      {getPlaylists.data && (
+      {data ? (
         <PlaylistsListItem
           id="37i9dQZF1E4tLXl1ytNjGw"
-          img={getPlaylists.data.images[0].url}
-          name={getPlaylists.data.name}
+          img={data.images[0].url}
+          name={data.name}
         />
+      ) : isLoading ? (
+        <li className="playlists__list-track">
+          <PlaylistSkeleton />
+        </li>
+      ) : (
+        <div>error</div>
       )}
     </ul>
   );

@@ -54,7 +54,7 @@ export const PlaylistSong: FC<PlaylistSongProps> = ({
         <span className="song__artist">{track.artists[0].name}</span>
       </div>
       <div className="song__details">
-        <button className="song__details--btn">
+        {/* <button className="song__details--btn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="15"
@@ -84,7 +84,7 @@ export const PlaylistSong: FC<PlaylistSongProps> = ({
               strokeLinejoin="round"
             />
           </svg>
-        </button>
+        </button> */}
         <span className="song__details--duration">
           {getConvertTime(track.duration_ms, 'track')}
         </span>
