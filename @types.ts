@@ -14,7 +14,7 @@ export interface IReleasesList {
 
 export interface IActions {
   id: number;
-  img: StaticImageData;
+  img: SVGElement;
   value: string;
   action: string;
   albumId?: string;
@@ -22,7 +22,7 @@ export interface IActions {
 
 export interface Isongs {
   id: number;
-  img: StaticImageData;
+  img: SVGElement;
   name: string;
   artist: string;
   duration: string;
