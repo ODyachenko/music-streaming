@@ -54,7 +54,7 @@ export const Player: FC = () => {
         </div>
       </div>
       <AudioPlayer
-        // autoPlay
+        // autoPlay={true}
         src={playingTrack.url}
         showSkipControls
         showJumpControls={false}
