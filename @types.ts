@@ -63,6 +63,7 @@ export type AlbumType = {
 };
 
 export interface IAddCollectionAlbum {
+  id?: string;
   albumId: string;
   albumCover: string;
   name: string;

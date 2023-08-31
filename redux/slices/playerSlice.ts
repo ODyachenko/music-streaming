@@ -20,7 +20,10 @@ export const playerSlice = createSlice({
     setIsShow: (state: PlayerState, action: PayloadAction<boolean>) => {
       state.isShow = action.payload;
     },
-    setPlayingTrack: (state: PlayerState, action: PayloadAction) => {
+    setPlayingTrack: (
+      state: PlayerState,
+      action: PayloadAction<PlayingTrackType>
+    ) => {
       state.playingTrack = action.payload;
     },
     incrementPlayingTrack: (state: PlayerState) => {

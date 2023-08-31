@@ -7,8 +7,8 @@ export const musicApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://spotify23.p.rapidapi.com/',
     headers: {
-      'X-RapidAPI-Key': process.env.NEXT_PUBLIC_API_KEY,
-      'X-RapidAPI-Host': process.env.NEXT_PUBLIC_API_HOST,
+      'X-RapidAPI-Key': String(process.env.NEXT_PUBLIC_API_KEY),
+      'X-RapidAPI-Host': String(process.env.NEXT_PUBLIC_API_HOST),
     },
   }),
   endpoints: (builder: any) => ({

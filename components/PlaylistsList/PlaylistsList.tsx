@@ -7,7 +7,7 @@ import { PlaylistsListItem } from './PlaylistsListItem';
 import './style.scss';
 
 export const PlaylistsList: FC = () => {
-  const { data, isLoading, error } = useGetPlaylistsQuery(
+  const { data, isLoading, error }: any = useGetPlaylistsQuery(
     '37i9dQZF1E4tLXl1ytNjGw'
   );
 

@@ -10,7 +10,7 @@ type AlbumPagePropsType = {
 };
 
 export default function page({ params }: AlbumPagePropsType) {
-  const { data, error, isLoading } = useGetMusicByAlbumsQuery(params.id);
+  const { data, error, isLoading }: any = useGetMusicByAlbumsQuery(params.id);
 
   return (
     data && (

@@ -9,7 +9,7 @@ type CollectionLIstProps = {
 };
 
 export const CollectionLIst: FC<CollectionLIstProps> = ({ type }) => {
-  const { data, isLoading, error } = useGetCollectionQuery(type);
+  const { data, isLoading, error }: any = useGetCollectionQuery(type);
 
   return (
     <ul className="collection__list">

@@ -9,7 +9,7 @@ type PlaylistSongsProps = {
 };
 
 export const PlaylistSongs: FC<PlaylistSongsProps> = ({ id }) => {
-  const { data, isLoading, error } = useGetPlaylistsTracksQuery(id);
+  const { data, isLoading, error }: any = useGetPlaylistsTracksQuery(id);
   const playlist = data?.items.map((item: any) => item.track);
 
   return (

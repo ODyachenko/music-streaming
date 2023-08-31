@@ -12,12 +12,9 @@ import { IAddCollectionAlbum } from '@/@types';
 
 type AlbumActionsItemProps = {
   albumId: string;
-  img: string;
   albumCover: string;
   name: string;
   artist: string;
-  value: string;
-  action: string;
   playlist: any;
 };
 
@@ -28,18 +25,18 @@ export const AlbumActions: FC<AlbumActionsItemProps> = ({
   artist,
   playlist,
 }) => {
-  const getLiked = useGetCollectionQuery('liked');
-  const getCollection = useGetCollectionQuery('collection');
+  const getLiked: any = useGetCollectionQuery('liked');
+  const getCollection: any = useGetCollectionQuery('collection');
   const [addToCollection] = useAddToCollectionMutation();
   const [removeCollection] = useDeleteFromCollectionMutation();
   const [addToLiked] = useAddToLikedMutation();
   const [removeLiked] = useDeleteFromLikedMutation();
   const dispatch = useAppDispatch();
 
-  const likedAlbum = getLiked.data?.find(
+  const likedAlbum: IAddCollectionAlbum = getLiked.data?.find(
     (item: IAddCollectionAlbum) => item.albumId === albumId
   );
-  const collectionAlbum = getCollection.data?.find(
+  const collectionAlbum: IAddCollectionAlbum = getCollection.data?.find(
     (item: IAddCollectionAlbum) => item.albumId === albumId
   );
 
@@ -64,14 +61,14 @@ export const AlbumActions: FC<AlbumActionsItemProps> = ({
           removeCollection(collectionAlbum.id);
           break;
         }
-        addToCollection({ albumId, albumCover, name, artist }, 'collection');
+        addToCollection({ albumId, albumCover, name, artist });
         break;
       case 'like':
         if (likedAlbum) {
           removeLiked(likedAlbum.id);
           break;
         }
-        addToLiked({ albumId, albumCover, name, artist }, 'liked');
+        addToLiked({ albumId, albumCover, name, artist });
         break;
     }
   }

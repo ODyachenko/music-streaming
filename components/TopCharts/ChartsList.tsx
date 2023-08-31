@@ -14,7 +14,7 @@ import 'swiper/css/scrollbar';
 
 export const ChartsList: FC = () => {
   const [showSlider, setShowSlide] = useState(true);
-  const { data, error, isLoading } = useGetMusicByAlbumsQuery(
+  const { data, error, isLoading }: any = useGetMusicByAlbumsQuery(
     '33pt9HBdGlAbRGBHQgsZsU,1CEODgTmTwLyabvwd7HBty,1jUoeAbO2HCADZ1uiyLYIo,3cQO7jp5S9qLBoIVtbkSM1'
   );
 
@@ -30,49 +30,51 @@ export const ChartsList: FC = () => {
     });
   }, [showSlider]);
 
-  return data ? (
+  return (
     <ul className="charts__list">
-      {showSlider ? (
-        <Swiper slidesPerView={'auto'} spaceBetween={17} loop={true}>
-          {data.albums.map((album: any) => {
+      {data ? (
+        showSlider ? (
+          <Swiper slidesPerView={'auto'} spaceBetween={17} loop={true}>
+            {data.albums.map((album: any) => {
+              return (
+                <SwiperSlide key={album.id}>
+                  <ChartsItem
+                    key={album.id}
+                    id={album.id}
+                    img={album.images[1].url}
+                    title={album.name}
+                    artist={album.artists[0].name}
+                    tracks={album.total_tracks}
+                    duration={getAlbumDuration(album)}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        ) : (
+          data.albums.map((album: any) => {
             return (
-              <SwiperSlide key={album.id}>
-                <ChartsItem
-                  key={album.id}
-                  id={album.id}
-                  img={album.images[1].url}
-                  title={album.name}
-                  artist={album.artists[0].name}
-                  tracks={album.total_tracks}
-                  duration={getAlbumDuration(album)}
-                />
-              </SwiperSlide>
+              <ChartsItem
+                key={album.id}
+                id={album.id}
+                img={album.images[1].url}
+                title={album.name}
+                artist={album.artists[0].name}
+                tracks={album.total_tracks}
+                duration={getAlbumDuration(album)}
+              />
             );
-          })}
-        </Swiper>
+          })
+        )
+      ) : isLoading ? (
+        [...new Array(4)].map((_, index) => (
+          <li className="charts__list-item" key={index}>
+            <Skelleton />
+          </li>
+        ))
       ) : (
-        data.albums.map((album: any) => {
-          return (
-            <ChartsItem
-              key={album.id}
-              id={album.id}
-              img={album.images[1].url}
-              title={album.name}
-              artist={album.artists[0].name}
-              tracks={album.total_tracks}
-              duration={getAlbumDuration(album)}
-            />
-          );
-        })
+        console.error(error)
       )}
     </ul>
-  ) : isLoading ? (
-    [...new Array(4)].map((_, index) => (
-      <li className="charts__list-item" key={index}>
-        <Skelleton />
-      </li>
-    ))
-  ) : (
-    console.error(error)
   );
 };

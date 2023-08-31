@@ -12,7 +12,7 @@ type PlaylistProps = {
 };
 
 export default function page({ params }: PlaylistProps) {
-  const { data, isLoading, error } = useGetPlaylistsQuery(params.id);
+  const { data, isLoading, error }: any = useGetPlaylistsQuery(params.id);
 
   return (
     <PageWrapper>
