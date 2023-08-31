@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { HYDRATE } from 'next-redux-wrapper';
 
 export const musicApi = createApi({
   reducerPath: 'musicApi',
@@ -16,6 +17,11 @@ export const musicApi = createApi({
     }),
     getPlaylists: builder.query({
       query: (id: string) => `playlist/?id=${id}`,
+      // extractRehydrationInfo(action: any, { reducerPath }: any) {
+      //   if (action.type === HYDRATE) {
+      //     return action.payload[reducerPath];
+      //   }
+      // },
     }),
     getPlaylistsTracks: builder.query({
       query: (id: string) => `playlist_tracks/?id=${id}`,

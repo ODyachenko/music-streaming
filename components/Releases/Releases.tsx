@@ -1,4 +1,3 @@
-'use client';
 import { FC } from 'react';
 import { ReleasesList } from './ReleasesList';
 import './style.scss';

@@ -6,8 +6,14 @@ import { RootState } from '@/redux/store';
 import Image from '@/node_modules/next/image';
 
 // import gif from '@/public/equalizer.gif';
+type SongProps = {
+  track: any;
+  index: number;
+  albumCover: string;
+  playlist: [];
+};
 
-export const Song: FC = ({ track, index, albumCover, playlist }: any) => {
+export const Song: FC<SongProps> = ({ track, index, albumCover, playlist }) => {
   const dispatch = useAppDispatch();
   const { playingTrack } = useAppSelector((state: RootState) => state.player);
 
@@ -34,7 +40,12 @@ export const Song: FC = ({ track, index, albumCover, playlist }: any) => {
       }`}
     >
       <span className="song__number">{index + 1}</span>
-      {/* <Image src={gif} alt="test" width={20} height={20} /> */}
+      <span className="song__wave">
+        <span className="song__wave-bar"></span>
+        <span className="song__wave-bar"></span>
+        <span className="song__wave-bar"></span>
+        <span className="song__wave-bar"></span>
+      </span>
       <div className="song__info">
         <h2 className="song__name">{track.name}</h2>
         <span className="song__artist">{track.artists[0].name}</span>

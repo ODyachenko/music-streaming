@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import {
   useAddToCollectionMutation,
   useAddToLikedMutation,
@@ -18,7 +18,7 @@ type AlbumActionsItemProps = {
   artist: string;
   value: string;
   action: string;
-  startTrack: any;
+  playlist: any;
 };
 
 export const AlbumActionsItem: FC<AlbumActionsItemProps> = ({
@@ -46,16 +46,9 @@ export const AlbumActionsItem: FC<AlbumActionsItemProps> = ({
     (item: IAddCollectionAlbum) => item.albumId === albumId
   );
 
-  // const [isActive, setIsActive] = useState(false);
-
-  // useEffect(() => {
-  //   setIsActive(!!likedAlbum);
-  // }, [likedAlbum]);
-
   function handleClick(action: string) {
     switch (action) {
       case 'PlayAll':
-        setIsShow(true);
         dispatch(setIsShow(true));
         dispatch(
           setPlayingTrack({
@@ -73,19 +66,17 @@ export const AlbumActionsItem: FC<AlbumActionsItemProps> = ({
         if (collectionAlbum) {
           removeCollection(collectionAlbum.id);
           // setIsActive(false);
-        } else {
-          addToCollection({ albumId, albumCover, name, artist }, 'collection');
-          // setIsActive(true);
+          break;
         }
+        addToCollection({ albumId, albumCover, name, artist }, 'collection');
         break;
       case 'Like':
         if (likedAlbum) {
           removeLiked(likedAlbum.id);
           // setIsActive(false);
-        } else {
-          addToLiked({ albumId, albumCover, name, artist }, 'liked');
-          // setIsActive(true);
+          break;
         }
+        addToLiked({ albumId, albumCover, name, artist }, 'liked');
         break;
     }
   }

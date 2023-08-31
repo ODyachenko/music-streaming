@@ -1,3 +1,4 @@
+'use client';
 import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ReleasesItem } from './ReleasesItem';
@@ -8,6 +9,38 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { useGetMusicByAlbumsQuery } from '@/redux/api/music.api';
 import { ReleasesSkelleton } from './ReleasesSkelleton';
+
+// SSR
+// export async function getServerSideProps() {
+//   const {data, isLoading, error} = await useGetPlaylistsTracksQuery();
+//   return {props: {data, isLoading, error}}
+// }
+
+// SSG (найращий варіант, підходить для сторінок з динамічним route)
+// export async function getStaticProps() {
+//   const {data, isLoading, error} = await useGetPlaylistsTracksQuery();
+//   return {props: {data, isLoading, error}}
+// }
+
+// Використовується для пререндеру всіх сторінок з динамічними route
+// export async function getStaticPaths() {
+//   const { data, isLoading, error } = await useGetPlaylistsTracksQuery();
+
+//   const paths = data.map((item) => {
+//     return {
+//       params: {
+//         id: item.id
+//       }
+//     }
+//   });
+//   return {paths, fallback: false}
+// }
+
+// ISR (SSG з можливістю оновлення даних на сторінці)
+// export async function getStaticProps() {
+//   const {data, isLoading, error} = await useGetPlaylistsTracksQuery();
+//   return {props: {data, isLoading, error}, revalidate: 1}
+// }
 
 export const ReleasesList: FC = () => {
   const { data, error, isLoading } = useGetMusicByAlbumsQuery(
