@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from '@/node_modules/next/image';
-import { IReleasesList } from '@/@types';
 import Link from '@/node_modules/next/link';
+import { IReleasesList } from '@/@types';
 
 export const ReleasesItem: FC<IReleasesList> = ({ id, img, title, artist }) => {
   return (

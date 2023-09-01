@@ -12,22 +12,6 @@ export interface IReleasesList {
   artist: string;
 }
 
-export interface IActions {
-  id: number;
-  img: SVGElement;
-  value: string;
-  action: string;
-  albumId?: string;
-}
-
-export interface Isongs {
-  id: number;
-  img: SVGElement;
-  name: string;
-  artist: string;
-  duration: string;
-}
-
 export type ChartsItemType = {
   id: string;
   img: string;
@@ -45,21 +29,6 @@ export type PlayingTrackType = {
   img: string;
   playlist: [];
   track_number: number;
-};
-
-export type PlaylistType = {
-  id: string;
-  name: string;
-  preview_url: string;
-};
-
-export type AlbumType = {
-  id: string;
-  title: string;
-  img: any;
-  artist: any;
-  tracks: any;
-  duration: number;
 };
 
 export interface IAddCollectionAlbum {

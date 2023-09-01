@@ -104,6 +104,11 @@ html,
 body {
   overflow-x: hidden;
 }
+html {
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 body {
   line-height: 1;
 }

@@ -1,5 +1,4 @@
 'use client';
-
 import { FC, useEffect, useState } from 'react';
 import { useGetMusicByAlbumsQuery } from '@/redux/api/music.api';
 import { Swiper, SwiperSlide } from 'swiper/react';

@@ -8,12 +8,13 @@ import {
   incrementPlayingTrack,
   setPlayingTrack,
 } from '@/redux/slices/playerSlice';
-import { PlaylistType } from '@/@types';
 import './style.scss';
 
 export const Player: FC = () => {
   const { playingTrack } = useAppSelector((state: RootState) => state.player);
   const dispatch = useAppDispatch();
+
+  console.log(playingTrack.playlist);
 
   const playlist = playingTrack.playlist?.map((track: any) => {
     return {
@@ -32,7 +33,6 @@ export const Player: FC = () => {
         id: playlist[playingTrack.track_number].id,
         name: playlist[playingTrack.track_number].name,
         url: playlist[playingTrack.track_number].url,
-        // img: playlist[playingTrack.track_number]?.img,
         artist: playlist[playingTrack.track_number].artist,
       })
     );
@@ -54,7 +54,6 @@ export const Player: FC = () => {
         </div>
       </div>
       <AudioPlayer
-        // autoPlay={true}
         src={playingTrack.url}
         showSkipControls
         showJumpControls={false}

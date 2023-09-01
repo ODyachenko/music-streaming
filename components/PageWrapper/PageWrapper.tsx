@@ -1,10 +1,9 @@
 'use client';
-
 import { FC, ReactNode } from 'react';
-import { useAppSelector } from '@/hooks/hooks';
+import type { RootState } from '../../redux/store';
 import { Navbar } from '../Navbar/Navbar';
 import { Player } from '../Player/Player';
-import type { RootState, AppDispatch } from '../../redux/store';
+import { useAppSelector } from '@/hooks/hooks';
 
 type PageWrapperProps = {
   children: ReactNode;

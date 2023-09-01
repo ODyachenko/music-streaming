@@ -30,10 +30,7 @@ export default function page({ params }: PlaylistProps) {
             <div className="album__info">
               <h1 className="album__title">{data.name}</h1>
               <p className="album__description">{data.description}</p>
-              <span className="album__amount">
-                {data.tracks.total} songs
-                {/* {getConvertTime(getAlbumDuration(data.albums[0]), 'album')} */}
-              </span>
+              <span className="album__amount">{data.tracks.total} songs</span>
             </div>
           </div>
           <PlaylistSongs id={params.id} />

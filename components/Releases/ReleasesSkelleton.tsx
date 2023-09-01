@@ -1,4 +1,3 @@
-'use client';
 import React, { FC } from 'react';
 import ContentLoader from 'react-content-loader';
 
