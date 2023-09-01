@@ -95,16 +95,18 @@
   }
   &__list {
     width: 320px;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: $primary-bg;
     transition: all 0.5s ease;
-    padding: 100px 40px 15px;
+    padding: 15px 40px;
 
     position: absolute;
     top: 84px;
     bottom: 0;
     right: -320px;
-    z-index: 100;
+    z-index: 1000;
 
     &.active {
       right: 0;
