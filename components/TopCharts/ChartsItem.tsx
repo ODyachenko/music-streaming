@@ -21,6 +21,7 @@ export const ChartsItem: FC<ChartsItemType> = ({
           alt={title}
           width={108}
           height={99}
+          priority
         />
         <div className="charts__list--info">
           <h3 className="charts__list--title">{title}</h3>

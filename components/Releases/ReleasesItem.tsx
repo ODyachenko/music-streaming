@@ -13,6 +13,7 @@ export const ReleasesItem: FC<IReleasesList> = ({ id, img, title, artist }) => {
           alt={title}
           width={300}
           height={300}
+          priority
         />
         <h2 className="releases__list-title">{artist}</h2>
         <h3 className="releases__list-artist">{title}</h3>
